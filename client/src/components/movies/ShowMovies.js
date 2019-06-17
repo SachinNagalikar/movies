@@ -62,6 +62,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
+import {CardImg} from 'reactstrap'
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -126,7 +127,7 @@ class ShowMovie extends React.Component{
             super(props)
             this.state = {
               movie: {},
-              isloaded:false
+              // isloaded:false
             }
             this.handleDelete=this.handleDelete.bind(this)
         }
@@ -139,7 +140,8 @@ class ShowMovie extends React.Component{
                 }
             })
                 .then((response) => {
-                    const movie = response.data
+                  const movie = response.data
+                  console.log(movie)
                     this.setState(()=>({movie:response.data}))
                 })
                 .catch((err) => {
@@ -174,33 +176,34 @@ class ShowMovie extends React.Component{
           {/* End hero unit */}
           <Grid container spacing={4}>
                     <Grid item key={this.state.movie._id} xs={12} sm={6} md={4}>
-              <Card className={classes.card}>       
+              {this.state.movie._id && <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
-                <img
+                  <img
                     src={this.state.movie.image[0]}
                     height="150" width="275"
                   />
-                <Typography  >
+                  <Typography  >
+                    {console.log(this.state.movie)}
                     movie :{this.state.movie.title}
                   </Typography>
-                   <Typography>
-              director : {this.state.movie.director}
-                 </Typography>
                   <Typography>
-             description : {this.state.movie.description}
+                    director : {this.state.movie.director}
                   </Typography>
                   <Typography>
-                                        year : {this.state.movie.year}
-                                      </Typography>
-                                  </CardContent>
-                              <CardActions>
-                    <Button size="small" color="primary" onClick={this.handleDelete}>
-                                delete</Button>
-                                      <Button size="small" color="primary">
-                                      <Link to="/movies">Back</Link>
-                                      </Button>
-                                  </CardActions>
-                              </Card>
+                    description : {this.state.movie.description}
+                  </Typography>
+                  <Typography>
+                    year : {this.state.movie.year}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" color="primary" onClick={this.handleDelete}>
+                    delete</Button>
+                  <Button size="small" color="primary">
+                    <Link to="/movies">Back</Link>
+                  </Button>
+                </CardActions>
+              </Card>}
                           </Grid>
           </Grid>
         </Container>
