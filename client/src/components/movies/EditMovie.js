@@ -40,6 +40,7 @@ class EditMovie extends React.Component {
             })
             .then((response) => {
                 const movie = response.data
+                this.setState(()=>({movie:movie}))
                 this.props.history.push(`/movies/${movie._id}`)
             })
             .catch((err) => {
@@ -49,8 +50,6 @@ class EditMovie extends React.Component {
 
     render() {
         return ( < div >
-            {/* <h2 > Edit Movie </h2> */}
-
             {
                 this.state.isloaded &&
                     <FormMovie title = {

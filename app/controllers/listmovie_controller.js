@@ -5,6 +5,18 @@ const { authenticateUser } = require('../middleware/authenticate')
 const { upload } = require('../middleware/imageUploads')
 const {User}=require('../models/user')
 const {Genere} = require('../models/genere')
+router.get('/name',(req, res) => {
+    const name = req.query.title
+    console.log(name)
+    ListMovie.find({title:name})
+        .then((data) => {
+            res.send(data)
+        })
+        .catch((err) => {
+        res.send(err)
+    })
+})
+
 router.get('/', (req, res) => {
     ListMovie.find()
         .then((data) => {
@@ -29,6 +41,7 @@ router.get('/:id', (req, res) => {
         res.send(err)
     })
 })
+
 router.post('/', upload.array('image', 4), authenticateUser, (req, res) => {
     const body = req.body
     const images = []
@@ -70,11 +83,7 @@ router.post('/', upload.array('image', 4), authenticateUser, (req, res) => {
 router.put('/:id',authenticateUser,(req, res) => {
     const id = req.params.id
     const listmovie = req.body
-    ListMovie.findByIdAndUpdate(id, listmovie, function (err, data) {
-            if (err) {
-                console.log(err)
-            }
-    })
+    ListMovie.findByIdAndUpdate({ _id: id }, {$set: listmovie },{new:true})
         .then((data) => {
             res.send(data)
         })
@@ -98,8 +107,4 @@ router.delete('/:id',authenticateUser,(req, res) => {
 module.exports = {
     listmovieRouter: router
 }
-
-
-
-
 

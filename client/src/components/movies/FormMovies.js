@@ -79,7 +79,7 @@ class FormMovie extends React.Component {
   componentDidMount() {
     axios.get("/genere").then(response => {
       const genere = response.data;
-      console.log(genere);
+      // console.log(genere);
       this.setState({ genere: response.data });
     });
   }
@@ -129,7 +129,7 @@ class FormMovie extends React.Component {
     this.props.handleMovieSubmission(data);
   };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const classes = this.props;
 
     if (this.state.redirectList) {
