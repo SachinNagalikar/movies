@@ -143,3 +143,5 @@ class Genere extends React.Component{
 }
 }
 export default Genere
+
+

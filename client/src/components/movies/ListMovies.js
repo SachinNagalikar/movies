@@ -52,7 +52,7 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from "reactstrap";
-import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button"
 import InputBase from '@material-ui/core/InputBase';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -66,6 +66,7 @@ import { makeStyles,fade,withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import axios from "../../config/axios";
+import ImageSlider from './slide'
 
 const styles = withStyles(theme => ({
   root: {
@@ -106,7 +107,7 @@ const styles = withStyles(theme => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: 700,
+      width: 500,
 
 
     }
@@ -170,6 +171,7 @@ class ListMovies extends React.Component {
 
     return (
       <React.Fragment>
+         
         <CssBaseline />
 
         <main>
@@ -195,24 +197,31 @@ class ListMovies extends React.Component {
               inputProps={{ 'aria-label': 'Search' }}
                         />
                          </div>
-          </div>
-                    <Button color="primary">
+                    </div>
+                    
+                    <Button color="primary"  >
                       <Link to="/movies/new">Add Movie</Link>
                     </Button>
+                    
                   </Grid>
+                  
                 </Grid>
               </div>
             </Container>
+           
           </div>
+        </main>
+        <ImageSlider/>
+          <main>
           <Container>
             {/* End hero unit */}
-            <Grid container spacing={4}>
+            <Grid container spacing={3}>
               {/* {console.log(this.state.movie)} */}
               {moviesSearch.map(movie => {
                 return (
                   <Grid item key={movie._id}>
                     <Card className={classes.card}>
-                      <img src={movie.image[0]} height="150" width="275" />
+                      <img src={movie.image[0]} height="150" width="270" />
                       <CardContent className={classes.cardContent}>
                         <Typography>movie:{movie.title}</Typography>
                         <Typography>director:{movie.director}</Typography>
