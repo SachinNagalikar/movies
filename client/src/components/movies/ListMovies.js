@@ -50,9 +50,10 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
+  CarouselCaption,
 } from "reactstrap";
 import Button from "@material-ui/core/Button"
+import TextField from "@material-ui/core/TextField";
 import InputBase from '@material-ui/core/InputBase';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -119,7 +120,6 @@ class ListMovies extends React.Component {
     super();
     this.state = {
       movies: [],
-      filtermovies: [],
       search: ""
     };
   }
@@ -164,11 +164,8 @@ class ListMovies extends React.Component {
         moviesSearch = searchMovies;
       }
     }  else {
-        moviesSearch = this.state.movies;
-      
+        moviesSearch = this.state.movies; 
     }
-    
-
     return (
       <React.Fragment>
          
@@ -184,8 +181,8 @@ class ListMovies extends React.Component {
                   <Grid item>
                      <div className={classes.search}>
                       <div className={classes.searchIcon}>
-                      <SearchIcon />
-                <InputBase
+                      {/* <SearchIcon /> */}
+                {/* <InputBase
                   type="search"
                       placeholder="Search…"
                       value={this.state.search}
@@ -195,14 +192,26 @@ class ListMovies extends React.Component {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'Search' }}
-                        />
+                        /> */}
+                        <TextField
+                        icon={ <SearchIcon />}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="search"
+              label="Search"
+              type="search"
+              id="search"
+              value={this.state.search}
+             onChange={this.handleSearch}
+              autoFocus
+            />
                          </div>
                     </div>
-                    
                     <Button color="primary"  >
-                      <Link to="/movies/new">Add Movie</Link>
+                  <Link to="/movies/new" color="danger">Add Movie</Link>
                     </Button>
-                    
                   </Grid>
                   
                 </Grid>

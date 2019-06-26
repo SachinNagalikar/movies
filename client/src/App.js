@@ -129,12 +129,12 @@ class App extends Component {
     return ( 
       <BrowserRouter>
         <div>
-          <AppBar position="static" color="secondary">
+          <AppBar position="static" color="primary">
         <Toolbar >
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
+          <Typography variant="h6" color="inherit" className={classes.grow} >
             Cinema-world
           </Typography>
           <div className={classes.search}>

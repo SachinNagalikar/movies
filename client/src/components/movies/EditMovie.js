@@ -31,20 +31,27 @@ class EditMovie extends React.Component {
                 console.log(err)
             })
     }
-    handleMovieSubmission = (formData) => {
-       console.log(formData,"handlemovie")
-        axios.put(`/movies/${this.state.movie._id}`, formData, {
+    handleMovieSubmission = (data) => {
+        var formData = {}
+        
+
+        for (var pair of data.entries()) {
+            formData[pair[0]] = pair[1]
+        }
+       console.log(data,"handlemovie")
+        axios.put(`/movies/${this.state.movie._id}`, data, {
                 headers: {
                     'x-auth': localStorage.getItem('token')
                 }
             })
             .then((response) => {
                 const movie = response.data
+                console.log(response.data,'put')
                 this.setState(()=>({movie:movie}))
                 this.props.history.push(`/movies/${movie._id}`)
             })
             .catch((err) => {
-                console.log(err)
+                console.log(err,'putee')
             })
     }
 

@@ -170,7 +170,6 @@ class ShowMovie extends React.Component{
   return (
     <React.Fragment>
       <CssBaseline />
-     
       <main>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}

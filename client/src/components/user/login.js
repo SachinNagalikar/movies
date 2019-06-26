@@ -97,7 +97,7 @@ class Login extends React.Component{
                 const {
                     token } = response.data
                 localStorage.setItem('token', token)
-                this.props.history.push('/generes')
+                this.props.history.push('/movies')
                 this.props.handlelogin()
             })
             .catch((err) => {

@@ -126,6 +126,7 @@ class FormMovie extends React.Component {
     for (let file of this.state.image) {
       data.append("image", file);
     }
+    console.log(data,'form')
     this.props.handleMovieSubmission(data);
   };
   render() {
