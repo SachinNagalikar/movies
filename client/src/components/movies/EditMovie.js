@@ -10,6 +10,7 @@ class EditMovie extends React.Component {
             genere:[],
             isloaded: false
         }
+        console.log(this.state.movie)
     }
     componentDidMount() {
         const id = this.props.match.params.id
@@ -34,11 +35,9 @@ class EditMovie extends React.Component {
     handleMovieSubmission = (data) => {
         var formData = {}
         
-
-        for (var pair of data.entries()) {
-            formData[pair[0]] = pair[1]
-        }
-       console.log(data,"handlemovie")
+        // for (var pair of data.entries()) {
+        //     formData[pair[0]] = pair[1]
+        // }
         axios.put(`/movies/${this.state.movie._id}`, data, {
                 headers: {
                     'x-auth': localStorage.getItem('token')
@@ -47,15 +46,16 @@ class EditMovie extends React.Component {
             .then((response) => {
                 const movie = response.data
                 console.log(response.data,'put')
-                this.setState(()=>({movie:movie}))
+                
                 this.props.history.push(`/movies/${movie._id}`)
             })
             .catch((err) => {
-                console.log(err,'putee')
+                console.log(err,'p')
             })
     }
 
     render() {
+        console.log(this.props)
         return ( < div >
             {
                 this.state.isloaded &&
@@ -73,6 +73,9 @@ class EditMovie extends React.Component {
                     }
                     year={
                         this.state.movie.year
+                    }
+                    image={
+                        this.state.movie.image[0]
                     }
                 handleMovieSubmission = {
                     this.handleMovieSubmission

@@ -80,11 +80,21 @@ router.post('/', upload.array('image', 4), authenticateUser, (req, res) => {
 //     })
 // })
 
-router.put('/:id',authenticateUser,(req, res) => {
+router.put('/:id',authenticateUser, upload.array('image', 4),(req, res) => {
     const id = req.params.id
     const listmovie = req.body
-    ListMovie.findByIdAndUpdate({ _id: id }, {$set: listmovie },{new:true})
+        const images = []
+        req.files.forEach(file => {
+            const imageUrl = file.destination
+            console.log(imageUrl)
+            const link = "http://localhost:3001" + imageUrl.slice(1) + file.filename
+            images.push(link)
+        })
+    listmovie.image=images
+    console.log(req.body)
+    ListMovie.findOneAndUpdate({ _id: id }, {$set: listmovie },{new:true})
         .then((data) => {
+            console.log(data,'controller')
             res.send(data)
         })
         .catch((err) => {
