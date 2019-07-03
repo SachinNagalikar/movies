@@ -124,8 +124,8 @@ class ListMovies extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get("/movies", {
+    axios 
+      .get("/movies",{
         headers: {
           "x-auth": localStorage.getItem("token")
         }
