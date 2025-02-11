@@ -1,60 +1,6 @@
-// import React from 'react'
-// import {Link} from 'react-router-dom'
-// import axios from '../../config/axios';
-// class ListMovies extends React.Component{
-//     constructor() {
-//          super()
-//         this.state = {
-//             movies:[]
-//         }
-//     }
-//     componentDidMount() {
-//         axios.get('/movies', {
-//             headers: {
-//                 'x-auth':localStorage.getItem('token')
-//             }
-//         })
-//             .then((response) => {
-//                 console.log(response.data)
-//                 this.setState(() =>({
-//                     movies:response.data
-//                 }))
-//             })
-//             .catch((err) => {
-//             console.log(err)
-//         })
-//     }
-//     render() {
-//         return (
-//             <div>
-//                 <h2>listing movies-{this.state.movies.length}</h2>
-//                 <ul>
-//                     {this.state.movies.map((movie) => {
-//                         return (<li key={movie._id}>
-//                             <Link to={`/movies/${movie._id}`} >{movie.title}</Link>-{" "}{movie.director}
-//                         </li>)
-//                     })}
-//                 </ul>
-//                 <Link to='/movies/new'>Add Movie</Link>
-//             </div>
-//         )
-//     }
-// }
-// export default ListMovies
-
-// import React from 'react';
-import AppBar from "@material-ui/core/AppBar";
 import React, { Component } from "react";
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-} from "reactstrap";
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField";
-import InputBase from '@material-ui/core/InputBase';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -63,7 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import PropTypes from 'prop-types';
 import Typography from "@material-ui/core/Typography";
-import { makeStyles,fade,withStyles } from "@material-ui/core/styles";
+import { makeStyles, fade, withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import axios from "../../config/axios";
@@ -84,7 +30,6 @@ const styles = withStyles(theme => ({
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
-    marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
@@ -101,7 +46,7 @@ const styles = withStyles(theme => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color:"danger",
+    color: "danger",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 70),
@@ -124,8 +69,8 @@ class ListMovies extends React.Component {
     };
   }
   componentDidMount() {
-    axios 
-      .get("/movies",{
+    axios
+      .get("/movies", {
         headers: {
           "x-auth": localStorage.getItem("token")
         }
@@ -163,12 +108,12 @@ class ListMovies extends React.Component {
       if (searchMovies) {
         moviesSearch = searchMovies;
       }
-    }  else {
-        moviesSearch = this.state.movies; 
+    } else {
+      moviesSearch = this.state.movies;
     }
     return (
       <React.Fragment>
-         
+
         <CssBaseline />
 
         <main>
@@ -176,52 +121,41 @@ class ListMovies extends React.Component {
           <div>
             <Container>
               <div>
-
                 <Grid container justify="center">
                   <Grid item>
-                     <div className={classes.search}>
+                    <div className={classes.search}>
                       <div className={classes.searchIcon}>
-                      {/* <SearchIcon /> */}
-                {/* <InputBase
-                  type="search"
-                      placeholder="Search…"
-                      value={this.state.search}
-                      onChange={this.handleSearch}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'Search' }}
-                        /> */}
                         <TextField
-                        icon={ <SearchIcon />}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="search"
-              label="Search"
-              type="search"
-              id="search"
-              value={this.state.search}
-             onChange={this.handleSearch}
-              autoFocus
-            />
-                         </div>
-                    </div>
-                    <Button color="primary"  >
-                  <Link to="/movies/new" color="danger">Add Movie</Link>
+                          icon={<SearchIcon />}
+                          style={{width:"100%"}}
+                          variant="outlined"
+                          margin="normal"
+                          required
+                          fullWidth
+                          name="search"
+                          label="Search"
+                          type="search"
+                          id="search"
+                          value={this.state.search}
+                          onChange={this.handleSearch}
+                          autoFocus
+                        />
+                      </div>
+                      <Button style={{color:'white',margin:'5px',backgroundColor:"rgb(248, 68, 100)"}} variant="outlined" onClick={(e) => (window.location.href ="/movies/new")}>
+                     Add Movie
                     </Button>
+                    </div>
+
                   </Grid>
-                  
+
                 </Grid>
               </div>
             </Container>
-           
+
           </div>
         </main>
-        <ImageSlider/>
-          <main>
+        <ImageSlider />
+        <main>
           <Container>
             {/* End hero unit */}
             <Grid container spacing={3}>

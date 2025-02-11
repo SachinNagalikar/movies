@@ -17,19 +17,11 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
   {
     imgPath:
-      'https://in.bookmyshow.com/entertainment/wp-content/uploads/2018/11/960x540-8.jpg',
-  },
-  {
-    imgPath:
-      'https://i.ytimg.com/vi/jrETX2eDhL8/maxresdefault.jpg',
+      'https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/medium/choo-mantar-et00426866-1735306271.jpg',
   },
   {
     imgPath:
       'https://i.ytimg.com/vi/G4AhQngUY2w/maxresdefault.jpg',
-  },
-  {
-    imgPath:
-      'https://d3c1jucybpy4ua.cloudfront.net/data/62950/big_picture/deadpool.jpg?1560717871',
   },
   {
     imgPath:
