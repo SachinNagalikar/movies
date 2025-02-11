@@ -36,13 +36,10 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -98,12 +95,8 @@ class Genere extends React.Component{
           return <Redirect to='/movies'/>
                     }
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Container component="main" maxWidth="xs" style={{border:'2px solid black',marginTop:"2%",padding:'50px'}}>
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
                   Genere
            </Typography>
@@ -126,7 +119,7 @@ class Genere extends React.Component{
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            style={{backgroundColor:"rgb(248, 68, 100)",color:'white'}}
             className={classes.submit}
             onChange={this.handleSubmit}
           >
@@ -135,6 +128,8 @@ class Genere extends React.Component{
         </form>
       </div>
     </Container>
+
+    
   );
 }
 }

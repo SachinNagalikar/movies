@@ -117,22 +117,25 @@ const App = () => {
             {/* Navigation Buttons */}
             {!isAuthenticated ? (
               <>
-                <Button style={{color:'white',margin:'5px'}} variant="outlined" onClick={(e) => (window.location.href ="/users/register")}>
+                <Button style={{ color: 'white', margin: '5px' }} variant="outlined" onClick={(e) => (window.location.href = "/users/register")}>
                   Register
                 </Button>
-                <Button style={{color:'white',margin:'5px'}} variant="outlined" onClick={(e) => (window.location.href ="/users/login")}>
+                <Button style={{ color: 'white', margin: '5px' }} variant="outlined" onClick={(e) => (window.location.href = "/users/login")}>
                   Login
                 </Button>
               </>
             ) : (
               <>
-                <Button style={{color:'white',margin:'5px'}} variant="outlined" onClick={(e) => (window.location.href ="/generes")}>
+                <Button style={{ color: 'white', margin: '5px' }} variant="outlined" onClick={(e) => (window.location.href = "/movies/new")}>
+                  Add Movie
+                </Button>
+                <Button style={{ color: 'white', margin: '5px' }} variant="outlined" onClick={(e) => (window.location.href = "/generes")}>
                   Genres
                 </Button>
-                <Button style={{color:'white',margin:'5px'}} variant="outlined" onClick={(e) => (window.location.href ="/movies")}>
+                <Button style={{ color: 'white', margin: '5px' }} variant="outlined" onClick={(e) => (window.location.href = "/movies")}>
                   Movies
                 </Button>
-                <Button style={{color:'white',margin:'5px'}} variant="outlined" onClick={(e) => (window.location.href ="/users/logout")}>
+                <Button style={{ color: 'white', margin: '5px' }} variant="outlined" onClick={(e) => (window.location.href = "/users/logout")}>
                   Logout
                 </Button>
               </>

@@ -35,10 +35,13 @@ const useStyles = makeStyles(theme => ({
       
   },
   paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+
+    marginTop: theme.spacing.unit * 8,
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+		padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
+			.spacing.unit * 3}px`
   },
   avatar: {
     margin: theme.spacing(1),
@@ -107,12 +110,9 @@ class Login extends React.Component{
     render() {
         const classes = this.props;
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" style={{border:'2px solid black',marginTop:"2%",padding:'50px'}}>
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
                   Login
            </Typography>
@@ -147,7 +147,7 @@ class Login extends React.Component{
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            style={{backgroundColor:"rgb(248, 68, 100)",color:'white'}}
             className={classes.submit}
             onChange={this.handleSubmit}
           >

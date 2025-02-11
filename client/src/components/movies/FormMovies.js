@@ -137,12 +137,9 @@ class FormMovie extends React.Component {
       return <Redirect to="/movies" />;
     }
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" style={{border:'2px solid black',marginTop:"2%",padding:'50px'}}>
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
             Movie
           </Typography>
@@ -236,20 +233,22 @@ class FormMovie extends React.Component {
             <br />
             <br/>
             <br/>
-            <Button
+            <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>            <Button
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              style={{backgroundColor:"rgb(248, 68, 100)",color:'white'}}
               className={classes.submit}
             >
               Add
             </Button>
-          </form>
-          <br />
-          <Button color="primary">
-            <Link to="/movies">back</Link>
+            <Button variant="outlined" fullWidth
+            onClick={(e) => (window.location.href = "/movies")}
+             style={{backgroundColor:"rgb(248, 68, 100)",color:'white'}}>
+            Back
           </Button>
+          </div>
+          </form>
         </div>
       </Container>
     );

@@ -114,12 +114,10 @@ class ListMovies extends React.Component {
     return (
       <React.Fragment>
 
-        <CssBaseline />
 
-        <main>
-          {/* Hero unit */}
-          <div>
-            <Container>
+        <main style={{margin:'2%'}}>
+        <CssBaseline />
+            {/* <Container>
               <div>
                 <Grid container justify="center">
                   <Grid item>
@@ -141,25 +139,16 @@ class ListMovies extends React.Component {
                           autoFocus
                         />
                       </div>
-                      <Button style={{color:'white',margin:'5px',backgroundColor:"rgb(248, 68, 100)"}} variant="outlined" onClick={(e) => (window.location.href ="/movies/new")}>
-                     Add Movie
-                    </Button>
                     </div>
-
                   </Grid>
 
                 </Grid>
               </div>
-            </Container>
+            </Container> */}
 
-          </div>
-        </main>
         <ImageSlider />
-        <main>
           <Container>
-            {/* End hero unit */}
             <Grid container spacing={3}>
-              {/* {console.log(this.state.movie)} */}
               {moviesSearch.map(movie => {
                 return (
                   <Grid item key={movie._id}>
@@ -172,12 +161,16 @@ class ListMovies extends React.Component {
                         <Typography>year:{movie.year}</Typography>
                       </CardContent>
                       <CardActions>
-                        <Button size="small" color="primary">
-                          <Link to={`/movies/${movie._id}`}>view</Link>{" "}
-                        </Button>
-                        <Button size="small" color="primary">
-                          <Link to={`/movies/edit/${movie._id}`}>Edit</Link>
-                        </Button>
+                      <Button variant="outlined" fullWidth
+            onClick={(e) => (window.location.href = `/movies/${movie._id}`)}
+             style={{backgroundColor:"rgb(248, 68, 100)",color:'white'}}>
+            View
+          </Button>
+          <Button variant="outlined" fullWidth
+            onClick={(e) => (window.location.href =`/movies/edit/${movie._id}`)}
+             style={{backgroundColor:"rgb(248, 68, 100)",color:'white'}}>
+            Edit
+          </Button>
                       </CardActions>
                     </Card>
                   </Grid>
