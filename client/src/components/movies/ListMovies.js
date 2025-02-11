@@ -113,8 +113,6 @@ class ListMovies extends React.Component {
     }
     return (
       <React.Fragment>
-
-
         <main style={{margin:'2%'}}>
         <CssBaseline />
             {/* <Container>

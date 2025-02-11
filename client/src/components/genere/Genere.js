@@ -95,7 +95,9 @@ class Genere extends React.Component{
           return <Redirect to='/movies'/>
                     }
   return (
-    <Container component="main" maxWidth="xs" style={{border:'2px solid black',marginTop:"2%",padding:'50px'}}>
+    <React.Fragment>
+              <CssBaseline />
+          <Container component="main" maxWidth="xs" style={{border:'2px solid black',marginTop:"2%",padding:'50px'}}>
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
                   Genere
@@ -128,8 +130,7 @@ class Genere extends React.Component{
         </form>
       </div>
     </Container>
-
-    
+    </React.Fragment>    
   );
 }
 }

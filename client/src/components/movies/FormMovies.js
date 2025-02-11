@@ -138,7 +138,6 @@ class FormMovie extends React.Component {
     }
     return (
       <Container component="main" maxWidth="xs" style={{border:'2px solid black',marginTop:"2%",padding:'50px'}}>
-        <CssBaseline />
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
             Movie

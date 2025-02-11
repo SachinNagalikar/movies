@@ -88,7 +88,6 @@ const App = () => {
 
   return (
     <Router>
-      <div>
         {/* Navigation Bar */}
         <AppBar position="static" style={{ backgroundColor: "rgb(248, 68, 100)" }}>
           <Toolbar>
@@ -152,7 +151,6 @@ const App = () => {
         <Route path="/movies/new" component={NewMovies} exact />
         <Route path="/movies/edit/:id" component={EditMovie} exact />
         <Route path="/movies/:id" component={ShowMovie} exact />
-      </div>
     </Router>
   );
 };
